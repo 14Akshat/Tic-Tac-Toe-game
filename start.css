@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden;
+}
+
+.start-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px #ffb74d;
+    animation: sketch-text 3s infinite alternate;
+}
+
+#start-btn {
+    padding: 1rem 2rem;
+    background-color: #00796b;
+    color: white;
+    font-size: 1.5rem;
+    border: 2px solid #004d40;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+#start-btn:hover {
+    transform: scale(1.1);
+    background-color: #004d40;
+}
+
+#start-btn:before,
+#start-btn:after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    border: 2px solid #004d40;
+    border-radius: 1rem;
+    z-index: -1;
+    transition: all 0.3s;
+    transform: scale(1.1);
+}
+
+#start-btn:before {
+    top: auto;
+    bottom: auto;
+    transform: scale(1.2);
+}
+
+#start-btn:after {
+    left: auto;
+    right: auto;
+    transform: scale(1.2);
+}
+
+#start-btn:hover:before,
+#start-btn:hover:after {
+    transform: scale(1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes sketch-text {
+    0% {
+        text-shadow: 2px 2px #ffb74d;
+    }
+    100% {
+        text-shadow: -2px -2px #ffb74d;
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.start-container h1,
+#start-btn {
+    animation: floating 2s infinite ease-in-out;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
